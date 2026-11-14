@@ -1,29 +1,23 @@
-# KNOWLEDGE / LAB — EDITORIAL v0.1
+# KNOWLEDGE / LAB v0.5
 
-iPhone Safari向けの個人用学習・UI実験アプリ。現在動作するUIはEDITORIALのみです。SOFT NEOとLAYERSは切替一覧内に将来追加用の枠を表示します。
+3つの独立したUI（EDITORIAL / SOFT NEO / LAYERS）を備えた個人用学習・分析アプリです。
 
-## 試し方
-1. ZIPを展開し、中のファイル・フォルダを同じ階層でGitHubリポジトリにアップロードします（ZIPの中身をリポジトリのルートに置く）。
-2. Settings → Pages → Build and deployment → Deploy from a branch → main / (root) → Save。
-3. GitHub PagesのURLをiPhone Safariで開き、「共有」→「ホーム画面に追加」。
+## v0.5での変更
 
-ローカルで動作確認する場合はHTTPサーバーで配信してください。`file://` 直開きではES ModulesやService Workerが動きません。
+- アプリアイコンを選定済みのリップル模様へ差し替え（正方形・端まで図柄を配置、角丸加工なし）。
+- EDITORIAL：各項目の詳細画面から画像を登録できます。タイトルを画像へ重ねるか選択できます。HOMEの特集にも登録画像を表示します。画像は端末内に縮小して保存されます。
+- SOFT NEO：ニュートラルグレーに変更、円形装飾を撤去、浅い縁と凹凸、操作部はトラック形、ボタン文字に弱い光。
+- LAYERS：彩度と透明度を独立、色付きの影、メイン以外の色を淡くしない、サブパネルの重なり。乗算時は白文字、スクリーン時は黒文字。
+- 全UI：アプリ名をタップで各UIのホームへ戻る機能（v0.4から継続）。
 
-## 実装
-- 共通データ: data.js
-- UI 01: editorial/index.js, editorial/style.css
-- オフライン対応: sw.js（公開後一度オンラインで開く必要あり）
-- UI別設定の保存: localStorage（現在はEDITORIALのみ）
-- 設定JSONの出力・入力（基本的な検証あり）
+## iPhoneでGitHubに配置
 
-## 制限
-- 初期収録内容は学習用の概説で、出典付きの詳細な専門DBではありません。
-- 物性値は代表的な目安で、同一測定条件の比較値ではありません。
-- 内容液との適合性や容器設計上の判断には利用できません。
-- 外部サーバーやログイン、実測データの登録はありません。
+ZIPを展開してリポジトリのルートに全ファイルとフォルダを配置し、GitHub Pagesで公開します。`index.html`はリポジトリの最上位です。既存のファイルを上書きすれば新バージョンに更新されます。
 
+## 上書きするもの
 
-## v0.3 — LAYERS
-- `layers/` に3番目のUIを追加。乗算・スクリーン・通常の混色モード、色・透明度・角R・重なり量・影などを変更できます。
-- 以前のバージョンからは `layers/` フォルダ3ファイルを追加し、`editorial/index.js`、`neo/index.js`、`sw.js` を更新してください。
-- `index.html` は最上位のまま変更不要です。
+`assets/icon-180.png`、`assets/icon-192.png`、`assets/icon-512.png`、`index.html`、`manifest.webmanifest`、`sw.js`、`editorial/index.js`、`editorial/style.css`、`neo/index.js`、`neo/style.css`、`neo/index.html`、`layers/index.js`、`layers/style.css`、`README.md`。
+
+端末の保存済み設定はなるべく維持しますが、アイコンの反映にはホーム画面のショートカットを一度削除して再追加する必要がある場合があります。
+
+**注意**：登録画像はブラウザのローカル保存領域を使います。多数の大きな画像は保存上限に達する可能性があります。設定のJSON書き出しを利用してください。学習内容は概説であり、材料適合性判断には用いないでください。
