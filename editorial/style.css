@@ -12,3 +12,5 @@
 .detail-image .image-caption{position:absolute;bottom:0;left:0;right:0;padding:35px 20px 19px;color:#fff;background:linear-gradient(transparent,#111a);font-weight:800;font-size:clamp(25px,7vw,52px);letter-spacing:-.05em;line-height:1.1}
 .image-tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin:0 0 18px}
 .image-pick{display:inline-flex;align-items:center;cursor:pointer}
+
+@import url("./editorial-v06.css");
